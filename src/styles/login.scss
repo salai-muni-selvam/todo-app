@@ -1,0 +1,72 @@
+$primary-color: #3498db;
+
+.login-container {
+  display: grid;
+  place-content: center;
+  height: calc(100vh - 56px);
+}
+
+.login-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 24px 32px;
+  text-align: center;
+  width: 300px;
+}
+.login-form > h2 {
+  margin-bottom: 12px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group > label {
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+}
+
+button {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.float-right {
+  float: right;
+}
+
+.my-2 {
+  margin: 12px 0;
+}
+
+.blue {
+  color: #1064ec;
+  cursor: pointer;
+}
