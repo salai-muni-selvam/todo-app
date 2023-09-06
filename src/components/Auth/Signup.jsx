@@ -15,7 +15,7 @@ const Signup = () => {
 
   const signupUser = (event) => {
     event.preventDefault();
-    dispatch(signUpUser(formData));
+    dispatch(signUpUser(formData, navigate));
   };
 
   const handleInputChange = (event) => {
@@ -63,7 +63,7 @@ const Signup = () => {
           <button type="submit">Create Account</button>
         </form>
         <h5 className="float-right my-2">
-          Already Have an Account?{" "}
+          Already Have an Account? &nbsp;
           <span className="blue" onClick={() => navigate("/")}>
             Login
           </span>

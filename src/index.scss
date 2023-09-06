@@ -11,5 +11,23 @@ body {
 }
 
 .app-title {
-  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+}
+
+select {
+  padding: 3px;
+}
+select option {
+  padding: 3px;
 }

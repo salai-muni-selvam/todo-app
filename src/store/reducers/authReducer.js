@@ -1,6 +1,6 @@
 const initialState = {
-  user: null,
-  loading: false,
+  user: localStorage.getItem("isLoggedIn"),
+  isLoggedIn: false,
   error: null,
 };
 
@@ -10,23 +10,14 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        loading: false,
+        isLoggedIn: true,
         error: null,
       };
     case "LOGOUT":
       return {
         ...state,
         user: null,
-        loading: false,
-        error: action.payload,
-      };
-    case "SIGNUP":
-      console.log(action.payload, "sdf");
-      return {
-        ...state,
-        user: null,
-        loading: false,
-        error: action.payload,
+        isLoggedIn: false,
       };
     default:
       return state;

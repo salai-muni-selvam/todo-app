@@ -1,30 +1,40 @@
-import { getCredentials, saveCredentials } from "../../services/indexedDb";
+import {
+  deleteDatabase,
+  getCredentials,
+  saveCredentials,
+} from "../../services/indexedDb";
 
 export const loginUser =
-  ({ username, password }) =>
+  ({ username, password }, navigate) =>
   async (dispatch) => {
     try {
-      const { password: confirmPassword } = await getCredentials(username);
-      if (password !== confirmPassword) {
+      const userDetails = await getCredentials(username);
+      if (password !== userDetails?.password) {
         alert("Password is Incorrect..Please Try Again");
         return;
       }
       dispatch({
         type: "LOGIN",
-        payload: { username, password },
+        payload: username,
       });
+      localStorage.setItem("isLoggedIn", username);
+      navigate("/todo");
     } catch (error) {
       console.error(error);
     }
   };
 
-export const logOutUser = ({ username }) => ({
-  type: "LOGOUT",
-  payload: { username },
-});
+export const logOutUser = (navigate) => async (dispatch) => {
+  localStorage.removeItem("isLoggedIn");
+  // await deleteDatabase();
+  dispatch({
+    type: "LOGOUT",
+  });
+  navigate("/");
+};
 
 export const signUpUser =
-  ({ username, password, confirmPassword }) =>
+  ({ username, password, confirmPassword }, navigate) =>
   async (dispatch) => {
     try {
       if (password !== confirmPassword) {
@@ -33,9 +43,11 @@ export const signUpUser =
       }
       await saveCredentials(username, password);
       dispatch({
-        type: "SIGNUP",
-        payload: { username, password, confirmPassword },
+        type: "LOGIN",
+        payload: username,
       });
+      localStorage.setItem("isLoggedIn", username);
+      navigate("/todo");
     } catch (error) {
       console.error(error);
     }

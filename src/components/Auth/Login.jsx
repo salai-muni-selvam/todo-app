@@ -14,7 +14,7 @@ const Login = () => {
 
   const LoginUser = (event) => {
     event.preventDefault();
-    dispatch(loginUser(formData));
+    dispatch(loginUser(formData, navigate));
   };
 
   const handleInputChange = (event) => {
@@ -53,7 +53,7 @@ const Login = () => {
           <button type="submit">Log In</button>
         </form>
         <h5 className="float-right my-2">
-          New User ?
+          New User? &nbsp;
           <span className="blue" onClick={() => navigate("/signup")}>
             Signup
           </span>
