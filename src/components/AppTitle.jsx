@@ -8,7 +8,7 @@ const AppTitle = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
-  const isLoggedIn = auth.isLoggedIn || localStorage.getItem("isLoggedIn");
+  const isLoggedIn = auth.isLoggedIn || sessionStorage.getItem("isLoggedIn");
   return (
     <div className="app-title">
       <h1>Todo App</h1>

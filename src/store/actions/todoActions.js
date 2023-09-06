@@ -2,7 +2,7 @@ import { addtodo, deleteTodo, getAllTodos } from "../../services/indexedDb";
 
 export const getAllTodosList = () => async (dispatch) => {
   try {
-    const username = localStorage.getItem("isLoggedIn");
+    const username = sessionStorage.getItem("isLoggedIn");
     const todos = await getAllTodos(username);
     dispatch({
       type: "GET_TODOS",
@@ -15,7 +15,7 @@ export const getAllTodosList = () => async (dispatch) => {
 
 export const addTodoAction = (todo) => async (dispatch) => {
   try {
-    const username = localStorage.getItem("isLoggedIn");
+    const username = sessionStorage.getItem("isLoggedIn");
     await addtodo(todo, username);
     dispatch(getAllTodosList());
   } catch (error) {
@@ -25,7 +25,7 @@ export const addTodoAction = (todo) => async (dispatch) => {
 
 export const deleteTodoAction = (id) => async (dispatch) => {
   try {
-    const username = localStorage.getItem("isLoggedIn");
+    const username = sessionStorage.getItem("isLoggedIn");
     await deleteTodo(id, username);
     dispatch(getAllTodosList());
   } catch (error) {

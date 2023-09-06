@@ -17,7 +17,7 @@ export const loginUser =
         type: "LOGIN",
         payload: username,
       });
-      localStorage.setItem("isLoggedIn", username);
+      sessionStorage.setItem("isLoggedIn", username);
       navigate("/todo");
     } catch (error) {
       console.error(error);
@@ -25,7 +25,7 @@ export const loginUser =
   };
 
 export const logOutUser = (navigate) => async (dispatch) => {
-  localStorage.removeItem("isLoggedIn");
+  sessionStorage.removeItem("isLoggedIn");
   // await deleteDatabase();
   dispatch({
     type: "LOGOUT",
@@ -46,7 +46,7 @@ export const signUpUser =
         type: "LOGIN",
         payload: username,
       });
-      localStorage.setItem("isLoggedIn", username);
+      sessionStorage.setItem("isLoggedIn", username);
       navigate("/todo");
     } catch (error) {
       console.error(error);

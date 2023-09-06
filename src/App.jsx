@@ -32,7 +32,7 @@ export default App;
 function RequireAuth({ children }) {
   const auth = useSelector((state) => state.auth);
 
-  if (!auth.isLoggedIn && !localStorage.getItem("isLoggedIn")) {
+  if (!auth.isLoggedIn && !sessionStorage.getItem("isLoggedIn")) {
     return <Navigate to="/login" replace />;
   }
 
