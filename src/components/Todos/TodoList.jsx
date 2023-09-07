@@ -56,7 +56,9 @@ const TodoList = () => {
             type="text"
             placeholder="Add a Todo.."
           />
-          <button className="br-8">Add</button>
+          <button type="button" className="br-8">
+            Add
+          </button>
         </form>
         {todos.map((todo) => {
           return (

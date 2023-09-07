@@ -20,6 +20,20 @@
   align-items: center;
 }
 
+.modal-close {
+  cursor: pointer;
+}
+
+.flex-col {
+  flex-direction: column;
+  min-width: 300px;
+  gap: 6px;
+}
+
+.justify-self-end {
+  justify-self: flex-end;
+}
+
 .float-right {
   float: right;
 }
