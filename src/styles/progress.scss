@@ -1,0 +1,17 @@
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background-color: #ded8d8e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.completed {
+  background: rgb(6, 183, 6);
+  height: 24px;
+}
+
+.progress {
+  background: #007bff;
+  height: 24px;
+}

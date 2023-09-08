@@ -7,6 +7,7 @@ import {
 } from "../../store/actions/todoActions";
 import TodoItem from "./TodoItem";
 import { formatDate } from "../../utils/formatDate";
+import Progress from "../Progress";
 
 const TodoList = () => {
   const todoRef = useRef();
@@ -32,7 +33,7 @@ const TodoList = () => {
 
   const addTodo = (event) => {
     event.preventDefault();
-    if (!todoRef.current.value) return;
+    if (!todoRef.current.value?.trim()) return;
     dispatch(
       addTodoAction({
         todo: todoRef.current.value,
@@ -60,6 +61,7 @@ const TodoList = () => {
             Add
           </button>
         </form>
+        <Progress />
         {todos.map((todo) => {
           return (
             <TodoItem
