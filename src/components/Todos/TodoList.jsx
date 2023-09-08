@@ -56,7 +56,7 @@ const TodoList = () => {
             type="text"
             placeholder="Add a Todo.."
           />
-          <button type="button" className="br-8">
+          <button onClick={addTodo} type="button" className="br-8">
             Add
           </button>
         </form>
