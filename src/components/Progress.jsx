@@ -17,10 +17,12 @@ const Progress = () => {
       100 +
     "%";
 
+  if (todos.length === 0) return null;
+
   return (
     <div className="progress-container flex">
-      <div className="progress" style={{ width: inprogress }}></div>
       <div className="completed" style={{ width: completed }}></div>
+      <div className="progress" style={{ width: inprogress }}></div>
     </div>
   );
 };
